@@ -11,12 +11,15 @@ on:
 jobs:
   build-and-deploy:
     runs-on: windows-latest
+    
+    defaults:
+      run:
+        working-directory: src
 
     steps:
     # checkout the repo
     - name: 'Checkout Github Action'
       uses: actions/checkout@master
-
 
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v1
