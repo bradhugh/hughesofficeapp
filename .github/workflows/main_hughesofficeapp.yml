@@ -25,6 +25,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
+        
+    - name: Add Nuget source and credentials
+      run: dotnet nuget update source github -u bradhugh -p "${{ secrets.GITHUB_TOKEN }}"
 
     - name: Build with dotnet
       run: dotnet build --configuration Release
